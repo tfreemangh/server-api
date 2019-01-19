@@ -18,4 +18,4 @@ services:
       - ".${MONGO_TEST_DATA_DIR}:${MONGO_TEST_DATA_DIR}"
     expose:
       - 27017
-command: "mongod --smallfiles --logpath=${MONGO_LOG_FILE}"
+    command: "mongod --smallfiles --logpath=${MONGO_LOG_FILE}"
