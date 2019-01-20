@@ -5,6 +5,7 @@ const express = require('express')
 const Snack = require('../models/Snack')
 const app = require('../index')
 let secret
+let value
 
 before(done => {
   app.on( 'APP_STARTED', () => {
@@ -16,8 +17,7 @@ describe('API Integration Test', () => {
   it('Runs all tests', done => {
     test('/api/snacks/new', assert => {
       request(app)
-        .post('/api/snacks/new')
-        .send(new Snack('12345', 'testsnack'))
+        .get('/api/snacks/new/${secret}/${value}')
         .expect(200)
         .end((err, res) => {
           if (err) return assert.fail(JSON.stringify(res))
@@ -29,7 +29,7 @@ describe('API Integration Test', () => {
 
     test('/api/snacks/:secret', assert => {
       request(app)
-        .get(`/api/snacks/${secret}`)
+        .get('/api/snacks/${secret}')
         .expect(200)
         .end((err, res) => {
           if (err) return assert.fail(JSON.stringify(res))
@@ -41,7 +41,7 @@ describe('API Integration Test', () => {
 
     test('/api/snacks/delete/:secret', assert => {
       request(app)
-        .delete(`/api/snacks/delete/${secret}`)
+        .delete('/api/snacks/delete/${secret}')
         .expect(200)
         .end((err, res) => {
           if (err) return assert.fail(JSON.stringify(res))
