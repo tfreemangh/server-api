@@ -17,7 +17,8 @@ describe('API Integration Test', () => {
   it('Runs all tests', done => {
     test('/api/snacks/new', assert => {
       request(app)
-        .get('/api/snacks/new/${secret}/${value}')
+        .headers({'client_secret' : ${secret}})
+        .get('/api/snacks/new/${value}')
         .expect(200)
         .end((err, res) => {
           if (err) return assert.fail(JSON.stringify(res))
@@ -26,10 +27,10 @@ describe('API Integration Test', () => {
         })
     })
 
-
-    test('/api/snacks/:secret', assert => {
+    test('/api/snacks/find/', assert => {
       request(app)
-        .get('/api/snacks/${secret}')
+        .headers({'client_secret' : ${secret}})
+        .get('/api/snacks/find/')
         .expect(200)
         .end((err, res) => {
           if (err) return assert.fail(JSON.stringify(res))
@@ -38,17 +39,17 @@ describe('API Integration Test', () => {
         })
     })
 
-
-    test('/api/snacks/delete/:secret', assert => {
+    test('/api/snacks/findall/', assert => {
       request(app)
-        .delete('/api/snacks/delete/${secret}')
+        .headers({'client_secret' : ${secret}})
+        .get('/api/snacks/findall/')
         .expect(200)
         .end((err, res) => {
           if (err) return assert.fail(JSON.stringify(res))
-          assert.pass('Deleted a specific Snack successfully, test passed!')
+          assert.pass('Got a specific Snack successfully, test passed!')
           assert.end()
-          done()
         })
     })
+
   })
 })
