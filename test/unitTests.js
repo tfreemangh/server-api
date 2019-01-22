@@ -18,7 +18,7 @@ describe('API Integration Test', () => {
     test('/api/snacks/new', assert => {
       request(app)
         .get('/api/snacks/new/teststring')
-        .set({"client-secret":"1234"})
+        .set({'client-secret':'1234'})
         .expect(200)
         .end((err, res) => {
           if (err) return assert.fail(JSON.stringify(res))
@@ -30,7 +30,7 @@ describe('API Integration Test', () => {
     test('/api/snacks/find/', assert => {
       request(app)
         .get('/api/snacks/find/')
-        .set({"client-secret":"1234"})
+        .set({'client-secret':'1234'})
         .expect(200)
         .end((err, res) => {
           if (err) return assert.fail(JSON.stringify(res))
@@ -42,7 +42,7 @@ describe('API Integration Test', () => {
     test('/api/snacks/findall/', assert => {
       request(app)
         .get('/api/snacks/findall/')
-        .set({"client-secret":"1187"})
+        .set({'client-secret':'1187'})
         .expect(200)
         .end((err, res) => {
           if (err) return assert.fail(JSON.stringify(res))
@@ -54,12 +54,13 @@ describe('API Integration Test', () => {
     test('/api/snacks/delete/', assert => {
       request(app)
         .get('/api/snacks/delete/')
-        .set({"client-secret":"1234"})
+        .set({'client-secret':'1234'})
         .expect(200)
         .end((err, res) => {
           if (err) return assert.fail(JSON.stringify(res))
           assert.pass('Deleted specific Snack successfully, test passed!')
           assert.end()
+          done()
         })
     })
   })
