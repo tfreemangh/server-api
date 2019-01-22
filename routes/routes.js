@@ -33,7 +33,7 @@ router.get('/snacks/find', (req, res, next) => {
       res.status(400).send({'error': err})
     }
     if (result === undefined || result.length == 0) {
-      res.status(400).send(({'error': 'Invalid client secret'})
+      res.status(400).send({'error': 'Invalid client secret'})
     }
     res.status(200).send(result)
   })
