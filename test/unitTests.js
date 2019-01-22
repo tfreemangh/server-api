@@ -46,7 +46,7 @@ describe('API Integration Test', () => {
         .expect(200)
         .end((err, res) => {
           if (err) return assert.fail(JSON.stringify(res))
-          assert.pass('Got a specific Snack successfully, test passed!')
+          assert.pass('Got all snacks successfully, test passed!')
           assert.end()
         })
     })
@@ -58,10 +58,9 @@ describe('API Integration Test', () => {
         .expect(200)
         .end((err, res) => {
           if (err) return assert.fail(JSON.stringify(res))
-          assert.pass('Got a specific Snack successfully, test passed!')
+          assert.pass('Deleted specific Snack successfully, test passed!')
           assert.end()
         })
     })
-
   })
 })
