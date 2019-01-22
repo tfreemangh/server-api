@@ -23,7 +23,7 @@ describe('API Integration Test', () => {
         .end((err, res) => {
           if (err) return assert.fail(JSON.stringify(res))
           assert.pass('Created a new Snack successfully, test passed!')
-          assert.end()å
+          assert.end()
         })
     })
 
