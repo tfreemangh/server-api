@@ -17,7 +17,7 @@ describe('API Integration Test', () => {
   it('Runs all tests', done => {
     test('/api/snacks/new', assert => {
       request(app)
-        .headers({'client_secret' : ${secret}})
+        .headers['client_secret'] = ${secret}
         .get('/api/snacks/new/${value}')
         .expect(200)
         .end((err, res) => {
@@ -29,7 +29,7 @@ describe('API Integration Test', () => {
 
     test('/api/snacks/find/', assert => {
       request(app)
-        .headers({'client_secret' : ${secret}})
+        .headers['client_secret'] = ${secret}
         .get('/api/snacks/find/')
         .expect(200)
         .end((err, res) => {
@@ -41,7 +41,7 @@ describe('API Integration Test', () => {
 
     test('/api/snacks/findall/', assert => {
       request(app)
-        .headers({'client_secret' : ${secret}})
+        .headers['client_secret'] = ${secret}
         .get('/api/snacks/findall/')
         .expect(200)
         .end((err, res) => {
