@@ -17,8 +17,8 @@ describe('API Integration Test', () => {
   it('Runs all tests', done => {
     test('/api/snacks/new', assert => {
       request(app)
-        .set({"client-sercret":"1234"})
         .get('/api/snacks/new/teststring')
+        .set({"client-sercret":"1234"})
         .expect(200)
         .end((err, res) => {
           if (err) return assert.fail(JSON.stringify(res))
@@ -29,8 +29,8 @@ describe('API Integration Test', () => {
 
     test('/api/snacks/find/', assert => {
       request(app)
-        .set({"client-sercret":"1234"})
         .get('/api/snacks/find/')
+        .set({"client-sercret":"1234"})
         .expect(200)
         .end((err, res) => {
           if (err) return assert.fail(JSON.stringify(res))
@@ -41,8 +41,8 @@ describe('API Integration Test', () => {
 
     test('/api/snacks/findall/', assert => {
       request(app)
-        .set({"client-sercret":"1187"})
         .get('/api/snacks/findall/')
+        .set({"client-sercret":"1187"})
         .expect(200)
         .end((err, res) => {
           if (err) return assert.fail(JSON.stringify(res))
@@ -53,8 +53,8 @@ describe('API Integration Test', () => {
 
     test('/api/snacks/delete/', assert => {
       request(app)
-        .set({"client-sercret":"1234"})
         .get('/api/snacks/delete/')
+        .set({"client-sercret":"1234"})
         .expect(200)
         .end((err, res) => {
           if (err) return assert.fail(JSON.stringify(res))
